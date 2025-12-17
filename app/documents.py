@@ -94,10 +94,8 @@ class DocumentStore:
                 query_lower in doc.title.lower()):
                 relevant_docs.append(doc)
         
-        # If no matches, return all documents (for demo purposes)
-        if not relevant_docs:
-            return self.documents[:3]  # Return first 3 as example
-        
+        # Return only documents that match the query
+        # If no matches, return empty list (don't return irrelevant documents)
         return relevant_docs
     
     def get_document_by_id(self, doc_id: str) -> Document:

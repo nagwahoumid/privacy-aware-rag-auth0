@@ -1,20 +1,20 @@
 # Privacy-Aware RAG Bot with Auth0 FGA
 
-A proof-of-concept RAG (Retrieval-Augmented Generation) bot that demonstrates **document-level access control** using Auth0 Fine-Grained Authorization (FGA). 
+A proof-of-concept RAG (Retrieval-Augmented Generation) bot that demonstrates document-level access control using Auth0 Fine-Grained Authorization (FGA). 
 
-## 🎯 What This Does (Explained Simply)
+## What This Does (Explained Simply)
 
 Imagine a library with books (documents). Some books are public (anyone can read), and some are locked (only managers can read).
 
 When you ask our bot a question:
 1. It finds books that might answer your question
-2. **Before opening any book**, it checks: "Does this person have permission?"
+2. Before opening any book, it checks: "Does this person have permission?"
 3. If YES → uses the book to answer
 4. If NO → pretends the book doesn't exist (never uses it!)
 
-This ensures sensitive documents (like salary info) are **never retrieved** for unauthorized users.
+This ensures sensitive documents (like salary info) are never retrieved** for unauthorised users.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 privacy-aware-rag-auth0/
@@ -29,7 +29,7 @@ privacy-aware-rag-auth0/
 └── README.md               # This file
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Install Dependencies
 
@@ -57,8 +57,8 @@ The server will start at `http://localhost:8000`
 Visit: `http://localhost:8000/demo`
 
 This shows a side-by-side comparison:
-- Employee asking about budget → **BLOCKED** from sensitive docs
-- Manager asking about budget → **ALLOWED** to see sensitive docs
+- Employee asking about budget → BLOCKED from sensitive docs
+- Manager asking about budget → ALLOWED to see sensitive docs
 
 **Option B: Use the API**
 
@@ -91,7 +91,7 @@ This shows a side-by-side comparison:
 - Employee: `blocked_documents` contains sensitive doc IDs
 - Manager: `blocked_documents` is empty (has access)
 
-## 🔐 How Privacy Works
+## How Privacy Works
 
 ### The Critical Flow:
 
@@ -110,14 +110,14 @@ FOR EACH DOCUMENT:
 Generate answer using ONLY allowed documents
 ```
 
-**Key Point:** Permission checks happen **BEFORE** retrieval. Blocked documents are never sent to the LLM.
+**Key Point:** Permission checks happen BEFORE retrieval. Blocked documents are never sent to the LLM.
 
 ### Access Rules (Current Demo):
 
 - **Public documents** (is_sensitive=False): Everyone can read
 - **Sensitive documents** (is_sensitive=True): Only managers can read
 
-## 📊 Sample Documents
+## Sample Documents
 
 **Public (anyone can read):**
 - Company Holiday Schedule
@@ -129,14 +129,14 @@ Generate answer using ONLY allowed documents
 - Salary Information
 - Executive Strategy
 
-## 🧪 Testing Scenarios
+## Testing Scenarios
 
 1. **Employee asks about holidays** → Should work (public doc)
 2. **Employee asks about budget** → Should be blocked (sensitive doc)
 3. **Manager asks about budget** → Should work (manager has access)
 4. **Manager asks about holidays** → Should work (public doc)
 
-## 🔧 For Production
+## For Production
 
 This is a **proof-of-concept**. For production, you'd need:
 
@@ -156,7 +156,7 @@ This is a **proof-of-concept**. For production, you'd need:
    - Use ChromaDB, Pinecone, or similar for document embeddings
    - Enable semantic search instead of keyword matching
 
-## 📝 API Endpoints
+## API Endpoints
 
 - `GET /` - Welcome message and API info
 - `GET /health` - Health check
@@ -164,19 +164,19 @@ This is a **proof-of-concept**. For production, you'd need:
 - `GET /demo` - Run demo comparison (employee vs manager)
 - `POST /query` - Ask a question (requires `user_id` and `question`)
 
-## 🎓 For Judges
+## For Judges
 
 **What this demonstrates:**
-- ✅ Document-level access control in RAG
-- ✅ Auth0 FGA integration (mocked but structured for real integration)
-- ✅ Pre-retrieval permission checks (documents blocked before LLM sees them)
-- ✅ Clear separation of concerns (auth, documents, RAG logic)
+- Document-level access control in RAG
+- Auth0 FGA integration (mocked but structured for real integration)
+- Pre-retrieval permission checks (documents blocked before LLM sees them)
+- Clear separation of concerns (auth, documents, RAG logic)
 
 **Key files to review:**
 - `app/auth.py` - Permission checking logic
 - `app/rag.py` - How permissions are checked BEFORE retrieval
 - `app/main.py` - API endpoints
 
-## 📄 License
+## License
 
-This is a hackathon project for MLH.
+Nagwa Houmid 
