@@ -1,0 +1,14 @@
+# Python dependencies for the Privacy-Aware RAG Bot
+
+# Web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Data validation
+pydantic==2.5.0
+
+# In a real app, you'd also add:
+# openai==1.3.0  # For LLM integration
+# openfga-sdk==0.2.0  # For real Auth0 FGA integration
+# chromadb==0.4.15  # For vector database
+
