@@ -1,0 +1,17 @@
+[
+  {
+    "id": "public_handbook",
+    "title": "Employee Handbook (Public)",
+    "text": "All employees are entitled to 20 days of annual leave. Office hours are 9am to 5pm. Contact HR for questions."
+  },
+  {
+    "id": "finance_budget_q4",
+    "title": "Finance Budget Q4 (Sensitive)",
+    "text": "Projected spend for Q4 is $1.2M. Department allocations: Engineering $600k, Sales $300k, Operations $300k."
+  },
+  {
+    "id": "salary_bands_2025",
+    "title": "Salary Bands 2025 (Highly Sensitive)",
+    "text": "Salary bands by level: L1 $60k-$80k, L2 $80k-$110k, L3 $110k-$150k. Access restricted to managers and HR."
+  }
+]
